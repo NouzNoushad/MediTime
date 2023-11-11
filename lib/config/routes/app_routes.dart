@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medicine_reminder_app/config/routes/route_constants.dart';
-import 'package:medicine_reminder_app/presentation/add_medicine/add_medicine_screen.dart';
-import 'package:medicine_reminder_app/presentation/reminder_home/reminder_home.dart';
-import 'package:medicine_reminder_app/utils/colors.dart';
+import 'package:medicine_reminder_app/features/presentation/screens/add_medicine/add_medicine_screen.dart';
+import 'package:medicine_reminder_app/features/presentation/screens/reminder_home/reminder_home.dart';
+import 'package:medicine_reminder_app/core/utils/colors.dart';
 
 class AppRoutes {
   static Route onGenerateRoutes(RouteSettings settings) {
