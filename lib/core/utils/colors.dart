@@ -6,4 +6,5 @@ class ColorPicker {
   static const Color primaryColor = Colors.deepPurple;
   static const Color lightColor = Colors.grey;
   static const Color transparentColor = Colors.transparent;
+  static const Color textColor = Colors.black;
 }

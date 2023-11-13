@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:medicine_reminder_app/core/utils/constants.dart';
 import 'package:medicine_reminder_app/features/domain/entity/reminder.dart';
-import 'package:medicine_reminder_app/features/domain/usecase/add_reminder.dart';
-import 'package:medicine_reminder_app/features/domain/usecase/get_reminders.dart';
-import 'package:medicine_reminder_app/features/domain/usecase/remove_reminder.dart';
+import 'package:medicine_reminder_app/features/domain/usecase/storage/add_reminder.dart';
+import 'package:medicine_reminder_app/features/domain/usecase/storage/get_reminders.dart';
+import 'package:medicine_reminder_app/features/domain/usecase/storage/remove_reminder.dart';
 
 part 'storage_state.dart';
 
@@ -38,9 +38,10 @@ class StorageCubit extends Cubit<StorageState> {
     emit(AddToStorageState(added));
   }
 
-  removeFromStorageEvent(int reminderId) async {
+  removeFromStorageEvent(String reminderId) async {
     bool removed = await _reminderUseCase.call(reminderId);
     getStorageEvent();
+    logger(msg: 'remove', debug: '$removed');
     emit(RemoveFromStorageState(removed));
   }
 }

@@ -25,3 +25,9 @@ List<int> hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 void logger({required String msg, required dynamic debug}) =>
     debugPrint('$msg: $debug');
+
+showSnackBar(context, msg) =>
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: ColorPicker.primaryColor,
+        behavior: SnackBarBehavior.floating,
+        content: Text(msg)));

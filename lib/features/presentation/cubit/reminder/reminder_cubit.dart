@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:medicine_reminder_app/core/utils/extensions.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../../config/service/service_locator.dart';
 import '../../../domain/entity/reminder.dart';
+import '../notification/notification_cubit.dart';
 
 part 'reminder_state.dart';
 
@@ -17,8 +19,8 @@ class ReminderCubit extends Cubit<ReminderState> {
             selectedDate: DateTime.now().dateTimeToString));
 
   int selectedType = 0;
-  int dropdownValue = 0;
-  String initDate = '';
+  int dropdownValue = 3;
+  String initDate = DateTime.now().dateTimeToString;
 
   onTapCalendar(BuildContext context) async {
     DateTime? selectedDate = await showDatePicker(
@@ -75,6 +77,16 @@ class ReminderCubit extends Cubit<ReminderState> {
         convertMedicineType(selectedType),
         const Uuid().v4(),
         convertMedicineTypeImage(selectedType));
+    setScheduleNotification(name);
     return reminder;
+  }
+
+  setScheduleNotification(String name) {
+    sl<NotificationCubit>().showScheduleNotification(
+        "It's Medi Time",
+        'Please take your medicine $name',
+        'payload',
+        initDate,
+        dropdownValue.toString());
   }
 }

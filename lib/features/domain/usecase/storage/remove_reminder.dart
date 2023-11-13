@@ -4,6 +4,6 @@ class RemoveReminderUseCase {
   final ReminderRepository _reminderRepository;
   RemoveReminderUseCase({required ReminderRepository reminderRepository})
       : _reminderRepository = reminderRepository;
-  Future<bool> call(int reminderId) =>
+  Future<bool> call(String reminderId) =>
       _reminderRepository.removeReminder(reminderId);
 }

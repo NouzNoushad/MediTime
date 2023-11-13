@@ -1,6 +1,6 @@
 import 'package:medicine_reminder_app/features/domain/repository/reminder_repository.dart';
 
-import '../entity/reminder.dart';
+import '../../entity/reminder.dart';
 
 class AddReminderUseCase {
   final ReminderRepository _reminderRepository;

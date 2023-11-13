@@ -7,6 +7,9 @@ extension MediaQueryExt on BuildContext {
 }
 
 extension DateTimeToStringExt on DateTime {
-  String get dateTimeToString =>
-      DateFormat('dd/MM/yyyy').format(this);
+  String get dateTimeToString => DateFormat('dd/MM/yyyy').format(this);
+}
+
+extension CamelCaseExt on String {
+  String toCamelCase() => this[0].toUpperCase() + substring(1).toLowerCase();
 }

@@ -22,7 +22,7 @@ class LocalReminderDataSourceImpl extends LocalReminderDataSource {
   }
 
   @override
-  Future<bool> removeReminder(int reminderId) async {
+  Future<bool> removeReminder(String reminderId) async {
     openBox.delete(reminderId);
     return true;
   }

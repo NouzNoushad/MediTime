@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:medicine_reminder_app/config/routes/route_constants.dart';
 import 'package:medicine_reminder_app/features/domain/entity/reminder.dart';
+import 'package:medicine_reminder_app/features/presentation/cubit/notification/notification_cubit.dart';
 import 'package:medicine_reminder_app/features/presentation/cubit/storage/storage_cubit.dart';
 import 'package:medicine_reminder_app/features/presentation/screens/add_medicine/components/date_time.dart';
 import 'package:medicine_reminder_app/features/presentation/screens/add_medicine/components/medicine_type.dart';
@@ -35,6 +37,9 @@ class _AddMedicineScreenState extends State<AddMedicineScreen> {
               .read<ReminderCubit>()
               .addMedicineReminder(nameController.text, dosageController.text);
           context.read<StorageCubit>().addToStorageEvent(reminder);
+          
+          Navigator.of(context).pushReplacementNamed(RouteConstants.home);
+          showSnackBar(context, 'Reminder added successfully');
         },
         icon: const Icon(Icons.check),
       ),

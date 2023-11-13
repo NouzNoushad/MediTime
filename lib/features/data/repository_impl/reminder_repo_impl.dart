@@ -15,6 +15,6 @@ class ReminderRepositoryImpl extends ReminderRepository {
   Future<List<Reminder>> getReminders() => _reminderDataSource.getReminders();
 
   @override
-  Future<bool> removeReminder(int reminderId) =>
+  Future<bool> removeReminder(String reminderId) =>
       _reminderDataSource.removeReminder(reminderId);
 }
